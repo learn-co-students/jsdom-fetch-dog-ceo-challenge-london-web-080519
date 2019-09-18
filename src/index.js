@@ -1,5 +1,7 @@
 console.log('%c HI', 'color: firebrick')
 
+// CHALLENGE 1 //
+
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 
 function makeImage(url) {
@@ -19,7 +21,29 @@ document.addEventListener("DOMContentLoaded", function() {
            for (let i=0; i<json['message'].length; i++ ) {
             //return json['message']
             //console.log(json['message'][i])
-            makeImage(json['message'][i]);
+            makeImage(json['message'][i])
            }
+        })
+});
+
+// CHALLENGE 2 //
+const breedUrl = "https://dog.ceo/api/breeds/list/all";
+
+function makeList(url) {
+    const dogBreeds = document.getElementById("dog-breeds");
+    let liList = document.createElement('li');
+    liList.innerText = url;
+    dogBreeds.appendChild(liList);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(breedUrl)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(obj) {
+            for (let prop in obj['message']) {
+                makeList(prop);
+              } 
         })
 });
