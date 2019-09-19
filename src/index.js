@@ -54,7 +54,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
 // CHALLENGE 3 //
     function liClicked(event) {
+        if (event.target.style.color == "blue") {
+            event.target.style.color = "black"
+        } else { 
         event.target.style.color = "blue"; 
+        }
     }
 
 
