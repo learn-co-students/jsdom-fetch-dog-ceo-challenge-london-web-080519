@@ -44,6 +44,24 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(function(obj) {
             for (let prop in obj['message']) {
                 makeList(prop);
+                selectLis();
               } 
         })
+
 });
+
+   
+    
+// CHALLENGE 3 //
+    function liClicked(event) {
+        event.target.style.color = "blue"; 
+    }
+
+
+    function selectLis() {
+        const lis = document.querySelectorAll('li');
+
+        for (let i=0; i<lis.length; i++) { 
+            lis[i].addEventListener('click', liClicked)
+        }
+    }   
