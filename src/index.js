@@ -48,16 +48,35 @@ document.addEventListener("DOMContentLoaded", function() {
               } 
         })
 
+    // CHALLENGE 4 //
+
+        const choose = document.querySelector("select#breed-dropdown")
+        choose.addEventListener("change", filterDropdown)
+
+        function filterDropdown() {
+            const lis = document.querySelectorAll('li');
+            const dogs = document.querySelector('ul#dog-breeds')
+            // console.log(event.target.value)
+            let startLetter = `${event.target.value}`
+            
+            for (let i=0; i<dogs.children.length; i++) {
+                if (!dogs.children[i].innerText.match("^" + startLetter)) {
+                    dogs.children[i].style.visibility = "hidden"
+                    //console.log(dogs.children[i].innerText)
+                }
+            }
+        }
+
 });
 
-   
-    
+ 
 // CHALLENGE 3 //
     function liClicked(event) {
-        if (event.target.style.color == "blue") {
+        
+        if (event.target.style.color == "red") {
             event.target.style.color = "black"
         } else { 
-        event.target.style.color = "blue"; 
+            event.target.style.color = "red"; 
         }
     }
 
